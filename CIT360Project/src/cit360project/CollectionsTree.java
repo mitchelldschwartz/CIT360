@@ -1,4 +1,4 @@
-public class Tree<T> {
+public class CollectionsTree<T> {
     private Node<T> root;
 
     public Tree(T rootData) {

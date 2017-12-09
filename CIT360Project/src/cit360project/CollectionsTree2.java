@@ -1,4 +1,4 @@
-public class TreeRoot<T> implements Iterable<TreeRoot<T>> {
+public class CollectionsTree2<T> implements Iterable<TreeRoot<T>> {
 
     T data;
     TreeRoot<T> parent;
