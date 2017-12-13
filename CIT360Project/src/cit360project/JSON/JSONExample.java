@@ -6,9 +6,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class JSONExample {
+public class JSONEchoClient {
     public static void main(String[] args){
-        JSONExample theClient = new JSONExample();
+        JSONEchoClient theClient = new JSONEchoClient();
         theClient.go();
     }
 

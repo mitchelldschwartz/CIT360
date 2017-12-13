@@ -1,5 +1,3 @@
-package cit360.spring2017.model;
-
 public class Student {
 	private String name;
 	

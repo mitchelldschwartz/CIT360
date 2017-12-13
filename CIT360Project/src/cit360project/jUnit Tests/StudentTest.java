@@ -1,10 +1,3 @@
-package cit360.spring2017.model.test;
-
-import org.junit.Assert;
-import org.junit.Test;
-
-import cit360.spring2017.model.Student;
-
 public class StudentTest {
 
 	@Test
