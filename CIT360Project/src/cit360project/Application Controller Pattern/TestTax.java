@@ -1,14 +1,3 @@
-package cit360.spring2017.acp_test;
-
-import cit360.spring2017.acp_calculator.TaxCalculator;
-import cit360.spring2017.acp_example.Budget;
-import cit360.spring2017.acp_interface.Tax;
-import cit360.spring2017.acp_taxes.Tax1;
-import cit360.spring2017.acp_taxes.Tax2;
-import cit360.spring2017.acp_taxes.Tax3;
-import cit360.spring2017.acp_taxes.Tax4;
-import cit360.spring2017.acp_taxes.Tax5;
-
 public class TestTax {
 
 	public static void main(String[] args) {
