@@ -1,26 +1,31 @@
+package TicTacToe;
+
 import java.util.Scanner;
 /**
- * Tic-Tac-Toe: Two-player console, GUI.
+ * Tic-Tac-Toe: Two-player console, non-graphics, non-OO version.
+ * All variables/methods are declared as static (belong to the class)
+ *  in the non-OO version.
  */
 public class TicTacToeClass {
+	
    // Name-constants to represent the seeds and cell contents
    public static final int EMPTY = 0;
    public static final int CROSS = 1;
-   public static final int ZERO = 10;
+   public static final int NOUGHT = 2;
  
    // Name-constants to represent the various states of the game
    public static final int PLAYING = 0;
    public static final int DRAW = 1;
    public static final int CROSS_WON = 2;
-   public static final int ZERO_WON = 3;
+   public static final int NOUGHT_WON = 3;
  
    // The game board and the game status
    public static final int ROWS = 3, COLS = 3; // number of rows and columns
    public static int[][] board = new int[ROWS][COLS]; // game board in 2D array
-                                                      //  containing (EMPTY, CROSS, zero)
+                                                      //  containing (EMPTY, CROSS, NOUGHT)
    public static int currentState;  // the current state of the game
-                                    // (PLAYING, DRAW, CROSS_WON, zero_WON)
-   public static int currentPlayer; // the current player (CROSS or zero)
+                                    // (PLAYING, DRAW, CROSS_WON, NOUGHT_WON)
+   public static int currentPlayer; // the current player (CROSS or NOUGHT)
    public static int currntRow, currentCol; // current seed's row and column
  
    public static Scanner in = new Scanner(System.in); // the input Scanner
@@ -36,14 +41,14 @@ public class TicTacToeClass {
          printBoard();
          // Print message if game-over
          if (currentState == CROSS_WON) {
-            System.out.println("Player 'X' Wins!");
-         } else if (currentState == ZERO_WON) {
-            System.out.println("Player 'O' Wins!");
+            System.out.println("'X' won! Bye!");
+         } else if (currentState == NOUGHT_WON) {
+            System.out.println("'O' won! Bye!");
          } else if (currentState == DRAW) {
-            System.out.println("It's a Draw. Try again!1");
+            System.out.println("It's a Draw! Bye!");
          }
          // Switch player
-         currentPlayer = (currentPlayer == CROSS) ? ZERO : CROSS;
+         currentPlayer = (currentPlayer == CROSS) ? NOUGHT : CROSS;
       } while (currentState == PLAYING); // repeat if not game-over
    }
  
@@ -86,7 +91,7 @@ public class TicTacToeClass {
        (currentRow, currentCol). */
    public static void updateGame(int theSeed, int currentRow, int currentCol) {
       if (hasWon(theSeed, currentRow, currentCol)) {  // check if winning move
-         currentState = (theSeed == CROSS) ? CROSS_WON : ZERO_WON;
+         currentState = (theSeed == CROSS) ? CROSS_WON : NOUGHT_WON;
       } else if (isDraw()) {  // check for draw
          currentState = DRAW;
       }
@@ -106,41 +111,23 @@ public class TicTacToeClass {
       return true;  // no empty cell, it's a draw
    }
  
-   public static int getRow(int rowToCheck) {
-	   int check = 0;
-	   for(int i = 0; i < ROWS; i++ ) {
-		   check += board[rowToCheck][i];
-	   }
-	   return check;
-   }
-   public static int getCol(int colToCheck) {
-	   int check = 0;
-	   for(int i = 0; i < COLS; i++ ) {
-		   check += board[colToCheck][i];
-	   }
-	   return check;
-   }
    /** Return true if the player with "theSeed" has won after placing at
        (currentRow, currentCol) */
    public static boolean hasWon(int theSeed, int currentRow, int currentCol) {
-	   int won = theSeed * 3;
-	   
-	   int check1 = getRow(currentRow);
-	   return won == check1;
-//      return (board[currentRow][0] == theSeed         // 3-in-the-row
-//                   && board[currentRow][1] == theSeed
-//                   && board[currentRow][2] == theSeed
-//              || board[0][currentCol] == theSeed      // 3-in-the-column
-//                   && board[1][currentCol] == theSeed
-//                   && board[2][currentCol] == theSeed
-//              || currentRow == currentCol            // 3-in-the-diagonal
-//                   && board[0][0] == theSeed
-//                   && board[1][1] == theSeed
-//                   && board[2][2] == theSeed
-//              || currentRow + currentCol == 2  // 3-in-the-opposite-diagonal
-//                   && board[0][2] == theSeed
-//                   && board[1][1] == theSeed
-//                   && board[2][0] == theSeed);
+      return (board[currentRow][0] == theSeed         // 3-in-the-row
+                   && board[currentRow][1] == theSeed
+                   && board[currentRow][2] == theSeed
+              || board[0][currentCol] == theSeed      // 3-in-the-column
+                   && board[1][currentCol] == theSeed
+                   && board[2][currentCol] == theSeed
+              || currentRow == currentCol            // 3-in-the-diagonal
+                   && board[0][0] == theSeed
+                   && board[1][1] == theSeed
+                   && board[2][2] == theSeed
+              || currentRow + currentCol == 2  // 3-in-the-opposite-diagonal
+                   && board[0][2] == theSeed
+                   && board[1][1] == theSeed
+                   && board[2][0] == theSeed);
    }
  
    /** Print the game board */
@@ -164,7 +151,7 @@ public class TicTacToeClass {
    public static void printCell(int content) {
       switch (content) {
          case EMPTY:  System.out.print("   "); break;
-         case ZERO: System.out.print(" O "); break;
+         case NOUGHT: System.out.print(" O "); break;
          case CROSS:  System.out.print(" X "); break;
       }
    }
