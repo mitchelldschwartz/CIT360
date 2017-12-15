@@ -1,6 +1,9 @@
 
 package jUnitTests;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -11,8 +14,18 @@ public class StudentTest {
 		Student student1 = new Student();
 		student1.setName("Someone");
 		
-		Assert.assertEquals("Someone", student1.getName());
+		Assert.assertNotSame("Someone", student1.getName());
+		
 	}
+
+	    @Test
+	    public void testGetTheObject() {
+	    	Student student1 = new Student();
+			student1.setName("Someonething");
+	        Assert.assertNull(student1.getName());
+	        Assert.assertNotNull(student1.getName());
+	    }
+
 	
 	@Test
 	public void testGetNameEmpty() {
@@ -22,5 +35,12 @@ public class StudentTest {
 		student1.setName("Janes");
 		Assert.assertNotEquals("", student1.getName());
 		Assert.assertEquals("The name should be Jane ", "Jane",student1.getName());
+	
 	}
+	 @Test
+	    public void testGetTheBoolean() {
+		 Student student1 = new Student();
+		student1.setName("Someonething");
+	    Assert.fail("String message on why it failed");
+	    }
 }

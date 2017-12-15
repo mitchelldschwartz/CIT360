@@ -3,5 +3,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="CIT360Project/src/cit360project"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/mitchell.schwartz/Desktop/hibernate-core-4.0.0.CR2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mitchell.schwartz/Desktop/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mitchell.schwartz/Desktop/javax.servlet-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mitchell.schwartz/Desktop/fafva/org.springframework.core.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
